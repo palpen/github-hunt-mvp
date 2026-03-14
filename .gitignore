@@ -33,9 +33,30 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Secrets and keys
+*.key
+*.pem
+*.p12
+*.pfx
+.ssh
+id_rsa
+id_ed25519
+*.cer
+
+# Local Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Package manager credentials
+.npmrc
+.yarnrc
+
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/src/generated/prisma
