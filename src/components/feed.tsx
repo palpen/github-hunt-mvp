@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useTransition, useCallback } from 'react';
+import { useState, useEffect, useTransition, useCallback } from 'react';
 import { App } from '../lib/types';
 import { getFeed } from '../actions/get-feed';
 import { searchApps } from '../actions/search-apps';
@@ -10,6 +10,10 @@ import SearchBar from './search-bar';
 export default function Feed({ initialApps }: { initialApps: App[] }) {
   const [apps, setApps] = useState<App[]>(initialApps);
   const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    setApps(initialApps);
+  }, [initialApps]);
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState<'new' | 'top'>('new');
   const [isPending, startTransition] = useTransition();
